@@ -8,11 +8,11 @@ from .services import mailing
 
 
 class CarSerializers(serializers.ModelSerializer):
-    id = serializers.IntegerField()
+    car_id = serializers.IntegerField()
 
     class Meta:
         model = Car
-        fields = ['id','mark','year','number','color','type']
+        fields = ['car_id','mark','year','number','color','type']
 
 
 class EducationSerializers(serializers.ModelSerializer):
@@ -125,7 +125,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.save()
         cars_data = dossier_data.pop('cars')
         schools_data = dossier_data.pop('schools')
-        war_data = dossier_data.pop('war_crfts')
+        war_data = dossier_data.pop('war_crafts')
         dossier = Dossier.objects.create(user=user, **dossier_data)
 
         for car in cars_data:

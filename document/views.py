@@ -19,11 +19,11 @@ class DocumentModelViewSet(viewsets.ModelViewSet):
             except IndexError:
                 docs = Document.objects.filter(document_root__in=['public'])
             if group == 'general':
-                docs = Document.objects.filter(document_root__in=['public','private','secret'])
+                docs = Document.objects.filter(document_root__in=['public','private','secret'],status='active')
             elif group == 'president':
-                docs = Document.objects.filter(document_root__in=['public', 'private', 'secret','top-secret'])
+                docs = Document.objects.filter(document_root__in=['public', 'private', 'secret','top-secret'],status='active')
             elif group == 'serjant':
-                docs = Document.objects.filter(document_root__in=['public', 'private',])
+                docs = Document.objects.filter(document_root__in=['public', 'private',],status='active')
 
             return docs
 

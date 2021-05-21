@@ -1,8 +1,6 @@
 from rest_framework.permissions import BasePermission,SAFE_METHODS
 
-class DossierPostMethod(BasePermission):
-
-    def has_permission(self, request, view, obj):
-        if request.method != 'POST':
+class RegisterPermission(BasePermission):
+    def has_permission(self, request, view):
+        if request.method != 'GET':
             return True
-        
